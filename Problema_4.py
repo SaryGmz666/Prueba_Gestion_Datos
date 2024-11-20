@@ -17,7 +17,8 @@ def run():
 
             print(f"Costo total para el producto {producto}: {costo_total}")
     
-    #Se manda llamar la funcion    
+    #Se manda llamar la funcion
+    print("-----------------PUNTO 1-----------------")   
     costos(productos_1)
     
     elementos ={
@@ -55,9 +56,67 @@ def run():
             print(f"{elemento}: {valores}")    
         
         
-    #Se manda llamar la funcion    
+    #Se manda llamar la funcion  
+    print("\n-----------------PUNTO 2-----------------")  
     promedio_alto_ord(elementos)
  
+    #Para el punto 3 solicita que el usuario eliga si desea ordenar el diccionario, monstar los promedios o ambos,
+    # entonces crearemos una nueva funcion la cual sea interativa con el usuario
+    
+    #Separamos la funcion anterior para que realice las actividades por separado y sean independientes.
+    
+    #Funcion para calcular los promedios
+    def promedio_3(elem, inmp):
+        promedios=[]
+        for elemento, valores in elem.items():
+            promedio = sum(valores.values())/len(valores)
+            promedios.append(promedio)
+            if inmp == "si":
+                print(f"El promedio del elemento {elemento} es {promedio}") #se agrega un +1 porque comienza en 0 
+        
+        return(promedios) #De igual manera retornamos la lista con promedios porque la ocupamos para ordenar
 
+    #Funcion para ordenar por promedios de mayor a menor
+    def ordenar_3(elem,promedios):
+        prom_ord = sorted(promedios, reverse=True)
+        elementos_ord ={}
+        
+        for prom in prom_ord:
+            indice = promedios.index(prom)
+            clave = list(elem.keys())[indice]
+            elementos_ord[clave] = elem[clave]
+            
+        #Ya ordenados por separado imprimimos el resultado del ordenamiento 
+        print("\nDiccionario ordenado por promedio es:")
+        for elemento, valores in elementos_ord.items():
+            print(f"{elemento}: {valores}")
+    
+    print("\n-----------------PUNTO 3-----------------")
+    #Funcion para interactuar con el usuario
+    def punto_3(dicc):
+        print("\nSe tiene el siguiente diccionario")
+        for elemento, valores in dicc.items():
+            print(f"{elemento}: {valores}")
+        
+        print("\nSelecciona la opcion que deses realizar con el: \n 1) Ordenar de manera descentente.")
+        print(" 2) Calcular los promedios de cada elemento. \n 3) Ambas acciones")
+        
+        while True:
+            try:
+                accion = int(input("Opcion: "))
+                if accion > 3:
+                    print("Ingresaste una opcion inexistente")
+                else:
+                    break
+            except ValueError:
+                print("¡Por favor, ingresa una opcion valida!")
+
+        if(accion == 2): promedio_3(dicc,"si")
+        elif(accion == 1): ordenar_3(dicc,promedio_3(dicc,"no"))
+        elif(accion == 3): ordenar_3(dicc,promedio_3(dicc,"si"))
+        
+        
+    punto_3(elementos)
+    
 if __name__=='__main__':
     run()
