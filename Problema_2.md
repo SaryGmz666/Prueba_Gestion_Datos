@@ -16,13 +16,40 @@ Desarrolla un Datamart anexando los scripts que emplearías y responde las sigui
     - ***Productos:*** Vienen siendo los productos Débito o Crédito y sus respectivos Bines relacionados que catalogan diferentes tipos de cuentas como Nómina, Cheques, Oros, Platinum, Personas Morales, entre otros.
     - ***Historial de transacciones:*** Es tal cual la transaccionalidad del cliente en diversos comercios, tranferencias, ingresos monetarios, etc.
         
-    Considerando estas tablas existen las siguientes tablas y relaciones.
+    Considerando estos criterios construimos las siguientes tablas y relaciones.
         
     **Tablas:**
 
-    La tabla clientes se componde con los siguientes campos
-    
+    1. Productos
 
+    | Nombre de Columna | Tipo de dato  | Descripción |
+    | :---------------- | :------------:| :---------- |
+    | Producto  | Varchar   | Contiene el valor de Débito o Crédito |
+    | Bin       | Integer   | Valor númerico de 6 caracteres |
+    | Clasificacion | Varchar | Nombre del producto |
+
+    2. Clientes
+
+    | Nombre de Columna | Tipo de dato  | Descripción |
+    | :---------------- | :------------:| :---------- |
+    | No_Cliente | CHAR  | Valor númerico único para identificar al cliente |
+    | Nombre | VARCHAR | Nombre del cliente |
+    | Edad | INTEGER | Edad del cliente |
+    | Telefono | INTEGER | Telefono del cliente |
+    | Correo | NVARCHAR | Correo del cliete |
+
+    3. Operativa
+
+    | Nombre de Columna | Tipo de dato  | Descripción |
+    | :---------------- | :------------:| :---------- |
+    | No_Cliente  | INTEGER | Valor númerico único para identificar al cliente |
+    | Bin | INTEGER | Valor númerico de 6 caracteres |
+    | No_Tarjeta | INTEGER | Numero de tarjeta o tarjetas relacionado a cada cliente |
+    | Tipo_Trans | CHAR | Identificadores de cada tipo de trx, como deposito, compra, etc |
+    | Fecha | DATE | Dia en el que realiza la trx el cliente |
+    | Hora | TIME | Fecha de realizacion de la operacion |
+    | Monto | FLOAT | Monto de la transaccion |
+    | Codigo_Respuesta | CHAR | Respuesta de la trx, si fue aprobada o rechazada por x motivo |
 
 3. Describe las relaciones entre las tablas especificando el tipo de relación (una a muchas, muchas a muchas, etc.) y justificando por qué ese tipo de relación es adecuado para cada par de tablas. Incluye también:
     - Explicación de cómo estas relaciones ayudan a satisfacer necesidades específicas del área de un banco.
