@@ -1,6 +1,29 @@
-USE SUELDOS_ESTUDIANTES
+-- Creacion de base de datos, tablas y relaciones
+CREATE DATABASE SUELDOS_ESTUDIANTES
 GO
 
+USE SUELDOS_ESTUDIANTES
+
+CREATE TABLE Estudiantes(
+	ID INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre VARCHAR(50) not NULL
+);
+
+CREATE TABLE Amigos(
+    ID INT NOT NULL,
+    Amigo_ID INT NOT NULL,
+    PRIMARY KEY (ID, Amigo_ID),
+    FOREIGN KEY (ID) REFERENCES Estudiantes(ID),
+    FOREIGN KEY (Amigo_ID) REFERENCES Estudiantes(ID)
+);
+
+CREATE TABLE Salario(
+    ID INT PRIMARY KEY,
+    Salario FLOAT NOT NULL,
+    FOREIGN KEY (ID) REFERENCES Estudiantes(ID)
+);
+
+--- Ingreso de datos ---
 INSERT INTO Estudiantes (Nombre)
 VALUES
 ('Manuel'),

@@ -16,9 +16,9 @@ SELECT
 FROM 
     Estudiantes
 JOIN 
-    Salario ON Estudiantes.ID = Salario.ID -- Le agregamos el salario del estudiante 
+    Salario ON Estudiantes.ID = Salario.ID -- Agregamos el salario del estudiante 
 JOIN 
-    Amigos ON Estudiantes.ID = Amigos.ID -- Conectamos a cada estudiante con sus amigos
+    Amigos ON Estudiantes.ID = Amigos.ID
 JOIN 
     Salario AS SalarioAmigo ON Amigos.Amigo_ID = SalarioAmigo.ID --Agregamos el salario del amigo
 WHERE 
