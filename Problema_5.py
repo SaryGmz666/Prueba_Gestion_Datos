@@ -29,7 +29,7 @@ def run():
     
     a_dado = [-2,1,-3,4,-1,2,1,-5,4]
     
-    #Funcion principal
+    #FUNCION PRINCIPAL
     def sub_arreglo_max(arreglo):
         res_max =[]
         largo = len(arreglo)
