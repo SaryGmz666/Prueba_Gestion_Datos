@@ -1,0 +1,3 @@
+No_Cliente	Nombre	Edad	Telefono	Correo
+1234567890	Saraí Gómez Ibarra	26	5628277477	sarygmz@hotmail.com
+0987654321	Yael Ordaz Alvarado	28	8118504576	yael.ordaz@gmail.com

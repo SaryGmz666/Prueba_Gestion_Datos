@@ -2,29 +2,29 @@ def run():
     
     #Funcion para el ingreso de datos al arreglo
     def ingreso_enteros():
-        # Comenzamos con una lista vacia para almacenar los valores
-        numeros = []
-    
         # Se solicita la longuitud del arreglo, como buscamos subarreglos continuos se ocupan como minimo 3 valores
         while True:
             try:
-                longitud = int(input("¿Cual es la longitud del arreglo? (Debe ser al menos 3): "))
+                longitud = int(input("¿Cuántos números deseas ingresar? (Mínimo 3): "))
                 if longitud < 3:
-                    print("¡La longitud minima del arreglo es 3!")
+                    print("¡La longitud mínima del arreglo es 3!")
                 else:
                     break
             except ValueError:
-                print("¡Por favor, ingresa un numero entero valido para la longitud!")
-    
-        # Ciclo para ingresar los enteros
+                print("¡Por favor, ingresa un número entero válido para la longitud!")
+
+        # Lista para almacenar los números ingresados
+        numeros = []
+
+        # Ingresar los números uno por uno
         while len(numeros) < longitud:
             try:
-                numero = int(input(f"Ingresa un numero entero: "))
+                numero = int(input(f"Ingresa el número entero: "))
                 numeros.append(numero)
             except ValueError:
-                print("¡Por favor, ingresa un numero entero valido!")
-    
-        print("\nLos numeros ingresados son:", numeros)
+                print("¡Por favor, ingresa un número entero válido!")
+
+        print("\nLos números ingresados son:", numeros)
         return numeros
     
     a_dado = [-2,1,-3,4,-1,2,1,-5,4]
